@@ -148,24 +148,31 @@ button {
 .links {
     display: block;
     color: var(--links);
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding: 32px 0;
     position: relative;
-    transition-property: color linear;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-delay: 0;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0;
+    
 }
 
 .links.current::after {
     display: block;
-    content: '';
+    content: "";
     position: absolute;
+    left: 0;
     width: 100%;
     height: 4px;
     background-color: var(--button-push-background);
     border-radius: 2px;
-    bottom: 0;
+    bottom: -1px;
+    transition: opacity 250ms var(--button-push-background);
+   
+}
+
+.links.links.current {
+    color: var(--button-push-background);
 }
 
 
@@ -205,7 +212,7 @@ button {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition-property: color linear;
+    transition-property: color;
         transition-duration: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-delay: 0;
@@ -300,7 +307,7 @@ button {
         border-radius: 4px;
         color: var(--order-button-color);
         border: 0;
-        transition-property: background-color linear;
+        transition-property: background-color;
         transition-duration: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-delay: 0;
@@ -501,8 +508,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-/*    transition: 250ms linear; */  
-    transition-property: background-color linear;  
+/*    transition: 250ms; */  
+    transition-property: background-color;  
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0;
@@ -526,6 +533,11 @@ background-color: var(--button-push-active);
 
 .social-icon {
     fill: #AFB1B8;
+    transition-property: background-color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0;
+
 }
 
 /* ------------- CLIENTS ---------- */
@@ -543,10 +555,10 @@ background-color: var(--button-push-active);
 .client-icon {
     padding-top: 16px;
     padding-bottom: 16px;
-    transition-property: color linear;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-delay: 0;
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0;
     
 }
 
@@ -565,7 +577,7 @@ background-color: var(--button-push-active);
     outline: 1px solid var(--background-color2); 
     border: 1px solid var(--icon);
     border-radius: 4px;
-    transition-property: border linear;
+    transition-property: border;
         transition-duration: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-delay: 0;
@@ -676,10 +688,10 @@ background-color: var(--button-push-active);
     line-height: 1.7142;
     letter-spacing: 0.03em;
     color: var(--footer-link);
-    transition-property: color linear;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-delay: 0;
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0;
 }
 
 .footer-link:hover {
@@ -732,10 +744,10 @@ background-color: var(--button-push-active);
         display: flex;
         justify-content: center;
         align-items: center;
-        transition-property: fill linear;
-            transition-duration: 250ms;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-delay: 0;
+        transition-property: fill;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0;
 }
 .footer-social-item {
     width: 44px;
@@ -763,10 +775,10 @@ background-color: var(--button-push-active);
             border-radius: 4px;
             padding: 6px 22px;
             border: 0;
-            transition-property: color linear;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-delay: 0;
+            transition-property: color, background-color, box-shadow;
+            transition-duration: 250ms;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0;
             /* cursor: pointer;
                 display: flex;
                 gap: 50px;
@@ -796,7 +808,7 @@ background-color: var(--button-push-active);
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.581);
-    transition: opacity 250ms linear, visibility 250ms linear;
+    transition: opacity 250ms, visibility 250ms;
 }
 
 .modal {
@@ -808,7 +820,7 @@ background-color: var(--button-push-active);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(1);
-    transition: transform 250ms linear;
+    transition: transform 250ms;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -873,16 +885,18 @@ background-color: var(--button-push-active);
 .filter-text {
     position: absolute;
     top: 0;
+    left: 0;
     background-color: rgba(33, 150, 243, 0.9);
     color: var(--filter-text-color);
-    font-weight: 400px;
+    font-weight: 400;
     font-size: 18px;
     line-height: 28px;
     padding: 40px;
-    height: 294px;
+    height: 100%;
     transform: translateY(100%);
-    transition: 250ms linear;
+    transition: transform 250ms;
     overflow: auto;
+    color: var(--filter-text-color);
 }
     
 
@@ -893,6 +907,11 @@ background-color: var(--button-push-active);
 .filter-link:hover,
 .filter-link:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+
+.filter-image {
+    position: relative;
+    overflow: hidden;
 }
 /*
 .filter-border:hover {
