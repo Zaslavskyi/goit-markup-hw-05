@@ -256,6 +256,10 @@ button {
     fill: var(--icon-mail-tel);
 }
 
+.email-pic {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 /*-------------- HEro ----------- */
 .order {
         min-width: 1600px;
@@ -533,7 +537,7 @@ background-color: var(--button-push-active);
 
 .social-icon {
     fill: #AFB1B8;
-    transition-property: background-color;
+    transition-property: fill;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-delay: 0;
@@ -744,7 +748,7 @@ background-color: var(--button-push-active);
         display: flex;
         justify-content: center;
         align-items: center;
-        transition-property: fill;
+        transition-property: background-color;
         transition-duration: 250ms;
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         transition-delay: 0;
@@ -868,8 +872,15 @@ background-color: var(--button-push-active);
 }
 
 .filter-top-wrap {
-    position: relative;
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 64px 24px;
+    background-color: rgba(33, 150, 243, 0.9);
+    transform: translateY(101%);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -878,25 +889,17 @@ background-color: var(--button-push-active);
         flex-basis: calc((100% - 60px) / 3);     
 }
 
+/*
 .filter-border:hover .filter-text {
     transform: translateY(0);
-}
+} */
 
 .filter-text {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(33, 150, 243, 0.9);
-    color: var(--filter-text-color);
     font-weight: 400;
     font-size: 18px;
     line-height: 28px;
-    padding: 40px;
-    height: 100%;
-    transform: translateY(100%);
-    transition: transform 250ms;
-    overflow: auto;
-    color: var(--filter-text-color);
+    letter-spacing: 0.03em;
+    color: var(--background-color2);
 }
     
 
@@ -909,14 +912,38 @@ background-color: var(--button-push-active);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.filter-link:hover .filter-top-wrap,
+.filter-link:focus .filter-top-wrap { 
+  transform: translateY(0);
+}
+
+.filter-border {
+    min-width: 370px;
+    background-color: var(--background-color2);
+}
+
 .filter-image {
     position: relative;
     overflow: hidden;
 }
-/*
-.filter-border:hover {
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
-}*/
+
+.filter-top-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(33, 150, 243, 0.9);
+        color: var(--filter-text-color);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        padding: 40px;
+        height: 100%;
+        transform: translateY(100%);
+        transition: transform 250ms;
+        overflow: auto;
+        color: var(--filter-text-color);
+}
+
 
 .filter-work {
         font-weight: 400;
